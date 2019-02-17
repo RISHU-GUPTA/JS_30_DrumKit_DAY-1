@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>GAMES BY RISHU GUPTA</title>
+    <style>
+body{
+    background: url("img/back.jpg");
+    margin: 0;
+    padding: 0;
+}
+</style>
+</head>
+<body>
+    <div class="keys">
+        <div class="key hi" data-key="65">
+            <kbd>A</kbd>
+            <span class="sound">crash</span>
+        </div>
+        <div class="key hi" data-key="65">
+            <kbd>S</kbd>
+            <span class="sound">brute</span>
+        </div>
+        <div class="key hi" data-key="65">
+            <kbd>D</kbd>
+            <span class="sound">clap</span>
+        </div>
+        <div class="key hi" data-key="65">
+            <kbd>F</kbd>
+            <span class="sound">snare</span>
+        </div>
+        <div class="key hi" data-key="65">
+            <kbd>G</kbd>
+            <span class="sound">electro</span>
+        </div>
+        <div class="key hi" data-key="65">
+            <kbd>H</kbd>
+            <span class="sound">bell</span>
+        </div>
+        <div class="key hi" data-key="65">
+            <kbd>J</kbd>
+            <span class="sound">kick</span>
+        </div>
+        <div class="key hi" data-key="65">
+            <kbd>K</kbd>
+            <span class="sound">big</span>
+        </div>
+        <div class="key hi" data-key="65">
+            <kbd>L</kbd>
+            <span class="sound">acous</span>
+        </div>
+    </div>
+   
+<audio src="sound/crash.wav" data-key="65"></audio>
+<audio src="sound/brute.wav" data-key="83"></audio>
+<audio src="sound/clap.wav" data-key="68"></audio>
+<audio src="sound/snare.wav" data-key="70"></audio>
+<audio src="sound/electron.wav" data-key="71"></audio>
+<audio src="sound/cowbell.wav" data-key="72"></audio>
+<audio src="sound/kick.wav" data-key="74"></audio>
+<audio src="sound/big.wav" data-key="75"></audio>
+<audio src="sound/acoustic.wav" data-key="76"></audio>
+<footer id="mar" style="display:none">
+    <marquee direction="rtl">MADE WITH LOVE BY <span style="color:brown">RISHU GUPTA</span></marquee>
+</footer>
+<script>
+
+function playSound(e){
+    const audio =document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key =document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if(!audio) return;
+    audio.currentTime=0;
+    audio.play();
+ 
+    key.classList.add('playing');
+}
+function removeTransition(e){
+    if(e.propertyName !=='transform') return;
+    this.classList.remove('playing');
+}
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+window.addEventListener('keydown', playSound);
+</script>
+<!--FOR TOUCH-->
+<script>
+document.getElementsByClassName('hi')[0].addEventListener('click',function(){
+var audio =new Audio("sound/crash.wav");
+audio.play();
+});
+document.getElementsByClassName('hi')[1].addEventListener('click',function(){
+var audio =new Audio("sound/brute.wav");
+audio.play();
+});
+document.getElementsByClassName('hi')[2].addEventListener('click',function(){
+var audio =new Audio("sound/clap.wav");
+audio.play();
+});
+document.getElementsByClassName('hi')[3].addEventListener('click',function(){
+var audio =new Audio("sound/snare.wav");
+audio.play();
+});
+document.getElementsByClassName('hi')[4].addEventListener('click',function(){
+var audio =new Audio("sound/electron.wav");
+audio.play();
+});
+document.getElementsByClassName('hi')[5].addEventListener('click',function(){
+var audio =new Audio("sound/cowbell.wav");
+audio.play();
+});
+document.getElementsByClassName('hi')[6].addEventListener('click',function(){
+var audio =new Audio("sound/kick.wav");
+audio.play();
+});
+document.getElementsByClassName('hi')[7].addEventListener('click',function(){
+var audio =new Audio("sound/big.wav");
+audio.play();
+});
+document.getElementsByClassName('hi')[8].addEventListener('click',function(){
+var audio =new Audio("sound/acoustic.wav");
+audio.play();
+});
+</script>
+</body>
+</html>
